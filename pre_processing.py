@@ -12,7 +12,6 @@ def preprocessing(df):
 
     df['Volume'] = df['Volume'].fillna(0).astype(int)
 
-    print(df.columns)
-    print(df.tail())
+    return df
 
 preprocessing(df)
