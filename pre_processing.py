@@ -1,8 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("data/btcusd_history.csv")
-
-def preprocessing(df):
+def get_preprocessing(df):
 
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
@@ -13,5 +11,3 @@ def preprocessing(df):
     df['Volume'] = df['Volume'].fillna(0).astype(int)
 
     return df
-
-preprocessing(df)
