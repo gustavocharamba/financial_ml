@@ -9,8 +9,8 @@ def get_macd(df):
     signal = line.ewm(span=9, adjust=False).mean()
     hist = line - signal
 
-    return pd.DataFrame({
-        "MACD_Line": line,
-        "MACD_Signal": signal,
-        "MACD_Hist": hist
-    }, index=df.index)
+    df['MACD_Line'] = line
+    df['MACD_Signal'] = signal
+    df['MACD_Hist'] = hist
+
+    return df

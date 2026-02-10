@@ -1,1 +1,12 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Ambientes Virtuais (se tiver) ---
+venv/
+env/
+.env
+
+# --- PyCharm (Configurações locais) ---
 .idea/

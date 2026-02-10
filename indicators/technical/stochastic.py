@@ -7,7 +7,7 @@ def get_stoch(df):
     k = 100 * ((df['Close'] - low_14) / (high_14 - low_14))
     d = k.rolling(window=3).mean()
 
-    return pd.DataFrame({
-        "Stoch_K": k,
-        "Stoch_D": d
-    }, index=df.index)
+    df["Stoch_K"] = k
+    df["Stoch_D"] = d
+
+    return df

@@ -13,6 +13,6 @@ def get_rsi(df):
 
     rsi = (100 - (100 / (1 + rs)))
 
-    return pd.DataFrame({
-        "RSI": rsi
-    }, index=df.index)
+    df["RSI"] = rsi
+
+    return df
