@@ -4,7 +4,7 @@ from indicators.statistical.skewness import get_skewness
 from indicators.statistical.kurtosis import get_kurtosis
 
 
-def get_statistical_features(df):
+def get_statistical_indicators(df):
 
     df = get_zscore(df)
     df = get_volatility(df)
