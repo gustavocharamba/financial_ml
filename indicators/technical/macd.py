@@ -1,16 +1,16 @@
 import pandas as pd
 
-def get_macd(df):
 
-    ema12 = df['Close'].ewm(span=12, adjust=False).mean()
-    ema26 = df['Close'].ewm(span=26, adjust=False).mean()
+def get_macd(df, fast=12, slow=26, signal=9):
 
-    line = ema12 - ema26
-    signal = line.ewm(span=9, adjust=False).mean()
-    hist = line - signal
+    ema_fast = df['Close'].ewm(span=fast, adjust=False).mean()
+    ema_slow = df['Close'].ewm(span=slow, adjust=False).mean()
 
-    df['MACD_Line'] = line
-    df['MACD_Signal'] = signal
-    df['MACD_Hist'] = hist
+    macd_line = ema_fast - ema_slow
+    signal_line = macd_line.ewm(span=signal, adjust=False).mean()
+
+    df['MACD_pct'] = macd_line / df['Close']
+    df['MACD_Signal_pct'] = signal_line / df['Close']
+    df['MACD_Hist_pct'] = (macd_line - signal_line) / df['Close']
 
     return df
